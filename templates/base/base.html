@@ -21,7 +21,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="bg-gradient-primary">
 
 
     {% block side_bar %}
@@ -151,7 +151,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        {% block top_bar %}
+        {% block top_bar %}  
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
@@ -332,7 +332,7 @@
           </ul>
 
         </nav>
-        {% endblock top_bar %}
+        {% endblock top_bar %} 
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -388,7 +388,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="{% url 'bases:logout' %}">Salir</a>
         </div>
       </div>
     </div>
@@ -396,13 +396,13 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'base/vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'base/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'base/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+  <script src="{% static 'base/js/sb-admin-2.min.js' %}"></script>
 
   {% block js_page %} {% endblock %}
 
