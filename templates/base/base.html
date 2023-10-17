@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<head>  
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,9 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Catálogos de Inventario</h6>
             <a class="collapse-item" href="{% url 'inv:categoria_list' %}">Categorias</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <a class="collapse-item" href="{% url 'inv:subcategoria_list' %}">Sub Categorias</a>
+            <a class="collapse-item" href="{% url 'inv:marca_list' %}">Marcas</a>
+            <a class="collapse-item" href="{% url 'inv:um_list' %}">Unidades de medida</a>
           </div>
         </div>
       </li>
