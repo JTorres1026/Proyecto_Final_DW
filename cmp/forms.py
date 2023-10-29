@@ -17,6 +17,30 @@ class ProveedorForm(forms.ModelForm):
                 'class':'form-control'
             })
 
+    def clean(self):
+        try:
+            sc= Proveedor.objects.get(
+                descripcion=self.cleaned_data["descripcion"].upper()
+            )
+
+            if not self.instance.pk:
+                print("Registro ya existe")
+                raise forms.ValidationError("Registro ya existe")
+            
+            elif self.instance.pk!=sc.pk:
+                print("Cambio no permitido")
+                raise forms.ValidationError("Cambio no permitido")
+
+        except Proveedor.DoesNotExist:
+            pass
+
+        return self.cleaned_data
+
+
+
+
+
+
 class ComprasEncForm(forms.ModelForm):
     fecha_compra = forms.DateInput()
     fecha_factura = forms.DateInput()

@@ -1,3 +1,4 @@
+from django.forms.models import BaseModelForm
 from django.shortcuts import render,redirect
 from django.views import generic
 from django.urls import reverse_lazy
@@ -16,13 +17,14 @@ from bases.views import SinPrivilegios
 from inv.models import Producto
 
 
+
 class ProveedorView(SinPrivilegios, generic.ListView):
     model = Proveedor
     template_name = "cmp/proveedor_list.html"
     context_object_name = "obj"
     permission_required="cmp.view_proveedor"
 
-class ProveedorNew(SuccessMessageMixin, SinPrivilegios,\
+class ProveedorNew(SuccessMessageMixin,SinPrivilegios,\
                    generic.CreateView):
     model=Proveedor
     template_name="cmp/proveedor_form.html"
@@ -36,9 +38,10 @@ class ProveedorNew(SuccessMessageMixin, SinPrivilegios,\
         form.instance.uc = self.request.user
         #print(self.request.user.id)
         return super().form_valid(form)
+    
 
 
-class ProveedorEdit(SuccessMessageMixin, SinPrivilegios,\
+class ProveedorEdit(SuccessMessageMixin,SinPrivilegios,\
                    generic.UpdateView):
     model=Proveedor
     template_name="cmp/proveedor_form.html"
